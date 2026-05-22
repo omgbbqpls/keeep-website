@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Download Keeep beta" description="Downloadinformatie voor de Keeep macOS beta.">
+  <main class="page">
+    <section class="page-hero">
+      <p class="eyebrow">Download</p>
+      <h1>macOS beta nu in test. Windows volgt.</h1>
+      <p class="intro">
+        We testen eerst de macOS build actief. Zodra de basis stabiel voelt, maken we een Windows build en testen we die apart.
+      </p>
+    </section>
+    <section class="release-grid">
+      <article class="release-card available">
+        <p class="eyebrow">Beschikbaar voor test</p>
+        <h2>macOS beta</h2>
+        <p>Eerste complete build is klaar voor actieve test.</p>
+        <button type="button">Downloadlink volgt</button>
+      </article>
+      <article class="release-card">
+        <p class="eyebrow">Binnenkort</p>
+        <h2>Windows beta</h2>
+        <p>De desktop-app is voorbereid, maar wordt pas gepubliceerd na Windows-test.</p>
+      </article>
+      <article class="release-card">
+        <p class="eyebrow">Later</p>
+        <h2>Android en iOS</h2>
+        <p>Mobiele apps komen pas nadat web en desktop stevig staan.</p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>

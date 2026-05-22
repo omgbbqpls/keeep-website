@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const questions = [
+  ['Is Keeep gekoppeld aan mijn bank?', 'Nee. Keeep werkt bewust zonder bankkoppeling. Je houdt zelf controle over wat je invoert.'],
+  ['Voor welk land is Keeep bedoeld?', 'De eerste versie richt zich op Nederlandse gebruikers, taal en gewoontes rond budgetteren.'],
+  ['Is er een mobiele app?', 'Nog niet als native app. Android en iOS staan later op de planning.'],
+  ['Is Windows al beschikbaar?', 'Nog niet. macOS is de eerste beta. Windows volgt zodra we goed kunnen bouwen en testen.'],
+  ['Waar staat mijn data?', 'De huidige desktopversie bewaart data lokaal op je eigen apparaat.'],
+  ['Wat kost Keeep?', 'Het definitieve prijsmodel is nog niet vastgesteld. De beta gebruiken we eerst om product en positionering goed te krijgen.']
+];
+---
+<BaseLayout title="FAQ - Keeep" description="Antwoorden op veelgestelde vragen over Keeep.">
+  <main class="page narrow">
+    <section class="page-hero">
+      <p class="eyebrow">FAQ</p>
+      <h1>Veelgestelde vragen</h1>
+    </section>
+    <section class="faq-list large">
+      {questions.map(([question, answer]) => (
+        <details>
+          <summary>{question}</summary>
+          <p>{answer}</p>
+        </details>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

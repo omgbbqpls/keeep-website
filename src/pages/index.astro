@@ -1,18 +1,157 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Keeep">
-  <main class="home">
-    <section class="hero">
-      <p class="eyebrow">Keeep</p>
-      <h1>Geef je geld een plan.</h1>
-      <p class="intro">
-        Een rustige plek voor budgetteren, overzicht en betere geldbeslissingen.
-      </p>
-      <div class="actions">
-        <a href="/blog/">Blog</a>
-        <a href="/legacy/landing.html">Oude landing</a>
+<BaseLayout
+  title="Keeep - Geef je geld een plan"
+  description="Keeep is een eenvoudige Nederlandse budgetapp waarmee je iedere euro vooraf een taak geeft."
+>
+  <main>
+    <section class="hero hero-home">
+      <div class="hero-copy">
+        <p class="eyebrow">Nederlandse budgetapp</p>
+        <h1>Stop met leven van salaris naar salaris.</h1>
+        <p class="hero-subtitle">Geef je geld een plan.</p>
+        <p class="intro">
+          Keeep is een eenvoudige Nederlandse budgetapp waarmee je iedere euro vooraf een taak geeft.
+          Geen abonnement. Geen ingewikkelde bankkoppelingen. Gewoon overzicht, potjes en rust.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="/download/">Probeer de macOS beta</a>
+          <a class="button secondary" href="/methode/">Bekijk de methode</a>
+        </div>
       </div>
+      <div class="product-preview" aria-label="Voorbeeld van Keeep budgetoverzicht">
+        <div class="preview-top">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="preview-grid">
+          <aside>
+            <strong>Keeep</strong>
+            <span>Budget</span>
+            <span>Potjes</span>
+            <span>Inzichten</span>
+          </aside>
+          <section>
+            <div class="preview-balance">
+              <span>Nog te verdelen</span>
+              <strong>742</strong>
+            </div>
+            <div class="preview-bars">
+              <div><span>Huur</span><i style="--w: 92%"></i></div>
+              <div><span>Boodschappen</span><i style="--w: 64%"></i></div>
+              <div><span>Buffer</span><i style="--w: 38%"></i></div>
+              <div><span>Leuke dingen</span><i style="--w: 51%"></i></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section two-column">
+      <div>
+        <p class="eyebrow">Voor wie</p>
+        <h2>Voor mensen die rust willen voordat het geld op is.</h2>
+      </div>
+      <div class="stack">
+        <p>Keeep is voor huishoudens, zelfstandigen en iedereen die zijn geld bewust wil verdelen voordat de maand begint.</p>
+        <p>Je hoeft geen spreadsheetmens te zijn. Je hoeft ook geen bankkoppeling te vertrouwen. Je maakt potjes, zet geld klaar en ziet meteen wat vrij besteedbaar is.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Hoe werkt het?</p>
+      <div class="steps">
+        <article>
+          <span>1</span>
+          <h3>Verdeel je inkomen</h3>
+          <p>Elke euro krijgt vooraf een taak: vaste lasten, boodschappen, buffer, sparen of plezier.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Gebruik potjes</h3>
+          <p>Je ziet per categorie wat er beschikbaar is, zodat je minder hoeft te gokken.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Stuur bij</h3>
+          <p>Als de maand anders loopt, schuif je geld tussen potjes zonder het overzicht kwijt te raken.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-band">
+      <div>
+        <p class="eyebrow">Geen abonnement</p>
+        <h2>Budgetteren moet geen extra vaste last worden.</h2>
+      </div>
+      <p>
+        Keeep begint bewust simpel: lokaal, overzichtelijk en zonder dure maandelijkse verplichting.
+        Later kunnen er betaalde uitbreidingen komen, maar de kern moet betaalbaar en begrijpelijk blijven.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Screenshots</p>
+        <h2>Gebouwd rond overzicht, niet rond ruis.</h2>
+      </div>
+      <div class="screenshot-grid">
+        <figure class="screen-card">
+          <div class="mini-screen budget-screen"></div>
+          <figcaption>Budgetten en potjes in een rustig overzicht.</figcaption>
+        </figure>
+        <figure class="screen-card">
+          <div class="mini-screen transaction-screen"></div>
+          <figcaption>Transacties zonder boekhoudtaal.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section beta-callout">
+      <div>
+        <p class="eyebrow">Beta</p>
+        <h2>macOS beta beschikbaar. Windows volgt.</h2>
+        <p>We testen nu actief met de eerste macOS build. Windows komt zodra we op een Windows-machine kunnen bouwen en controleren.</p>
+      </div>
+      <a class="button primary" href="/download/">Naar download</a>
+    </section>
+
+    <section class="section faq-preview">
+      <p class="eyebrow">FAQ</p>
+      <h2>Veelgestelde vragen</h2>
+      <div class="faq-list">
+        <details open>
+          <summary>Moet ik mijn bank koppelen?</summary>
+          <p>Nee. Keeep is juist bedoeld zonder ingewikkelde of gevoelige bankkoppeling.</p>
+        </details>
+        <details>
+          <summary>Is er al een Windows-versie?</summary>
+          <p>Nog niet. De desktop-repo is voorbereid, maar we testen eerst macOS.</p>
+        </details>
+        <details>
+          <summary>Is Keeep gratis?</summary>
+          <p>De beta is bedoeld om te testen. Het definitieve prijsmodel leggen we pas vast als de basis goed voelt.</p>
+        </details>
+      </div>
+      <a class="text-link" href="/faq/">Bekijk alle vragen</a>
+    </section>
+
+    <section class="section signup">
+      <div>
+        <p class="eyebrow">Wachtlijst</p>
+        <h2>Wil je beta-updates krijgen?</h2>
+        <p>Laat straks je mailadres achter voor updates over de macOS beta, Windows-build en website-lancering.</p>
+      </div>
+      <form class="signup-form">
+        <label for="email">E-mailadres</label>
+        <div>
+          <input id="email" type="email" placeholder="jij@example.nl" />
+          <button type="button">Aanmelden</button>
+        </div>
+        <small>Formulier nog niet gekoppeld. Eerst lokaal goed krijgen, dan hosting en mailflow.</small>
+      </form>
     </section>
   </main>
 </BaseLayout>
