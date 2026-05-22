@@ -1,40 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Download Keeep beta" description="Downloadinformatie voor de Keeep macOS beta.">
+<BaseLayout title="Download Keeep beta" description="Vraag toegang aan tot de Keeep beta voor macOS.">
   <main class="page">
     <section class="page-hero">
-      <p class="eyebrow">Download</p>
-      <h1>macOS beta nu in test. Windows volgt.</h1>
+      <p class="eyebrow">Download / beta</p>
+      <h1>Test Keeep als beta-gebruiker.</h1>
       <p class="intro">
-        We testen eerst de macOS build actief. Zodra de basis stabiel voelt, maken we een Windows build en testen we die apart.
+        Keeep is momenteel in beta. De kern werkt: budgetteren, categorieen, rollover,
+        creditcards, back-ups en lokale opslag. We zoeken gebruikers die de app in het dagelijks leven
+        willen testen en feedback willen geven op duidelijkheid, gebruiksgemak en betrouwbaarheid.
       </p>
     </section>
+
     <section class="release-grid">
       <article class="release-card available">
-        <p class="eyebrow">Beschikbaar voor test</p>
+        <p class="eyebrow">Beschikbaar</p>
         <h2>macOS beta</h2>
-        <p>De eerste complete macOS build is klaar voor actieve test. Dit is nu de build waar we feedback op verzamelen.</p>
-        <button type="button">Downloadlink volgt</button>
+        <p>De eerste complete macOS build is beschikbaar voor testgebruikers.</p>
+        <button type="button">Vraag toegang tot de beta aan</button>
       </article>
       <article class="release-card">
-        <p class="eyebrow">Binnenkort</p>
-        <h2>Windows beta</h2>
-        <p>De desktop-app is voorbereid, maar wordt pas gepubliceerd na Windows-test.</p>
+        <p class="eyebrow">Komt eraan</p>
+        <h2>Windows</h2>
+        <p>Windows volgt zodra de build getest is op een Windows-machine.</p>
       </article>
       <article class="release-card">
-        <p class="eyebrow">Later</p>
-        <h2>Android en iOS</h2>
-        <p>Mobiele apps komen pas nadat web en desktop stevig staan.</p>
+        <p class="eyebrow">Bewust niet nu</p>
+        <h2>Geen mobiele belofte</h2>
+        <p>We beloven nu geen iOS, Android, bankimport of automatische synchronisatie.</p>
       </article>
     </section>
+
     <section class="download-notes">
-      <h2>Wat test je in de beta?</h2>
+      <h2>Belangrijk voor beta-testers</h2>
       <ul>
-        <li>Budgetteren met potjes en maandcategorieen.</li>
-        <li>Lokale opslag van je budgetgegevens.</li>
-        <li>De macOS desktopervaring met de huidige webapp als basis.</li>
-        <li>Of de methode logisch voelt in het dagelijks gebruik.</li>
+        <li>Data blijft lokaal op je eigen apparaat.</li>
+        <li>De beta kan nog bugs bevatten.</li>
+        <li>Maak regelmatig zelf een back-up.</li>
+        <li>Er is geen bankkoppeling.</li>
+        <li>Er is geen automatisch importeren van transacties.</li>
+        <li>Creditcards, rollover, back-up/herstel en lokale opslag zijn onderdeel van de test.</li>
       </ul>
     </section>
   </main>

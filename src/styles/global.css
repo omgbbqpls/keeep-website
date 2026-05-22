@@ -196,7 +196,11 @@ main {
 .feature-grid p,
 .download-notes li,
 .method-example p,
-.post-list p {
+.post-list p,
+.check-list p,
+.not-list p,
+.section-intro,
+.price-panel p {
   color: var(--text-2);
   font-size: 18px;
   line-height: 1.65;
@@ -401,6 +405,57 @@ main {
   margin-bottom: 10px;
 }
 
+.feature-grid.dense {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.feature-grid.dense article {
+  padding: 20px;
+}
+
+.feature-grid.dense h3 {
+  font-size: 18px;
+}
+
+.check-list,
+.not-list {
+  display: grid;
+  gap: 12px;
+}
+
+.check-list p,
+.not-list p {
+  position: relative;
+  margin: 0;
+  padding: 14px 16px 14px 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.check-list p::before,
+.not-list p::before {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  color: var(--green);
+  font-weight: 950;
+}
+
+.check-list p::before {
+  content: "✓";
+}
+
+.not-list p::before {
+  content: "×";
+  color: var(--red);
+}
+
+.section-intro {
+  max-width: 760px;
+  margin-top: 14px;
+}
+
 .beta-callout {
   align-items: center;
 }
@@ -515,6 +570,26 @@ main {
   margin-top: 8px;
 }
 
+.price-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  margin-top: 34px;
+  padding: 28px;
+  border: 1px solid rgba(29, 201, 154, 0.32);
+  border-radius: 8px;
+  background: var(--green-soft);
+}
+
+.price-panel h2 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.price-panel p {
+  margin-top: 12px;
+}
+
 .download-notes {
   margin-top: 24px;
 }
@@ -609,6 +684,7 @@ main {
   .beta-callout,
   .signup,
   .method-example,
+  .price-panel,
   .signup-form div {
     grid-template-columns: 1fr;
   }
@@ -622,6 +698,7 @@ main {
   .release-grid,
   .content-grid,
   .feature-grid,
+  .feature-grid.dense,
   .post-list {
     grid-template-columns: 1fr;
   }
