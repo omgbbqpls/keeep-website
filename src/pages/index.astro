@@ -122,11 +122,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <div class="screenshot-grid">
         <figure class="product-shot">
-          <img src="/images/keeep-app-budget.png" alt="Screenshot van het budgetscherm in Keeep" />
+          <button
+            class="screenshot-trigger"
+            type="button"
+            data-full-src="/images/keeep-app-budget.png"
+            data-caption="Budget: vaste lasten, dagelijks leven, vrije ruimte en potjes voor later."
+          >
+            <img src="/images/keeep-app-budget.png" alt="Screenshot van het budgetscherm in Keeep" />
+          </button>
           <figcaption>Budget: vaste lasten, dagelijks leven, vrije ruimte en potjes voor later.</figcaption>
         </figure>
         <figure class="product-shot">
-          <img src="/images/keeep-app-transacties.png" alt="Screenshot van de transactiepagina in Keeep" />
+          <button
+            class="screenshot-trigger"
+            type="button"
+            data-full-src="/images/keeep-app-transacties.png"
+            data-caption="Transacties: handmatig bijhouden, categoriseren en lokaal bewaren."
+          >
+            <img src="/images/keeep-app-transacties.png" alt="Screenshot van de transactiepagina in Keeep" />
+          </button>
           <figcaption>Transacties: handmatig bijhouden, categoriseren en lokaal bewaren.</figcaption>
         </figure>
       </div>
@@ -147,4 +161,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a class="button primary" href="/download/">Ik wil Keeep testen</a>
     </section>
   </main>
+
+  <dialog class="screenshot-modal" aria-label="Vergrote app screenshot">
+    <button class="screenshot-modal-close" type="button" aria-label="Sluit screenshot">×</button>
+    <img src="" alt="" />
+    <p></p>
+  </dialog>
+
+  <script>
+    const modal = document.querySelector('.screenshot-modal');
+    const modalImage = modal?.querySelector('img');
+    const modalCaption = modal?.querySelector('p');
+    const closeButton = modal?.querySelector('button');
+
+    document.querySelectorAll('.screenshot-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        if (!(modal instanceof HTMLDialogElement) || !modalImage || !modalCaption) return;
+
+        const image = trigger.querySelector('img');
+        modalImage.src = trigger.dataset.fullSrc || image?.getAttribute('src') || '';
+        modalImage.alt = image?.getAttribute('alt') || '';
+        modalCaption.textContent = trigger.dataset.caption || '';
+        modal.showModal();
+      });
+    });
+
+    closeButton?.addEventListener('click', () => {
+      if (modal instanceof HTMLDialogElement) modal.close();
+    });
+
+    modal?.addEventListener('click', (event) => {
+      if (event.target === modal && modal instanceof HTMLDialogElement) modal.close();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal instanceof HTMLDialogElement) modal.close();
+    });
+  </script>
 </BaseLayout>
