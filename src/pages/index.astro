@@ -7,93 +7,123 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <main>
     <section class="hero hero-home">
-      <div class="hero-copy">
+      <div class="hero-inner">
         <p class="eyebrow">Nuchtere Nederlandse budget-app</p>
         <h1>Stop met leven van salaris naar salaris.</h1>
         <p class="hero-subtitle">Geef je geld een plan.</p>
         <p class="intro">
-          Keeep is een Nederlandse budget-app waarmee je je inkomen vooruit plant,
-          potjes maakt en maand na maand grip houdt op je geld. Geen abonnement.
-          Geen bankkoppeling. Je data blijft lokaal op je eigen apparaat.
+          Keeep helpt je je inkomen vooruit te plannen, potjes te maken en maand na maand grip te houden.
+          Geen abonnement. Geen bankkoppeling. Je data blijft lokaal op je eigen apparaat.
         </p>
         <div class="actions">
           <a class="button primary" href="/download/">Download de beta</a>
           <a class="button secondary" href="/methode/">Lees hoe Keeep werkt</a>
         </div>
-        <dl class="hero-facts" aria-label="Belangrijkste eigenschappen">
-          <div><dt>Abonnement</dt><dd>nee</dd></div>
-          <div><dt>Bankkoppeling</dt><dd>nee</dd></div>
-          <div><dt>Data</dt><dd>lokaal</dd></div>
-        </dl>
       </div>
-      <figure class="product-shot hero-shot">
-        <img src="/images/keeep-app-budget.png" alt="Tijdelijke screenshot van het Keeep budgetscherm" />
-        <figcaption>Tijdelijke app-screenshot. Nieuwe productbeelden worden later vervangen.</figcaption>
-      </figure>
+
+      <div class="hero-visual" aria-label="Keeep in gebruik">
+        <figure class="phone-card">
+          <img src="/images/keeep-app-budget.png" alt="Tijdelijke screenshot van het Keeep budgetscherm" />
+        </figure>
+        <div class="life-card">
+          <p>Geen financieel circus.</p>
+          <strong>Gewoon weten wat je geld moet doen.</strong>
+        </div>
+        <figure class="wide-card">
+          <img src="/images/keeep-app-transacties.png" alt="Tijdelijke screenshot van de Keeep transactiepagina" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section trust-strip" aria-label="Belangrijkste eigenschappen">
+      <div><strong>Geen abonnement</strong><span>Eenmalige aankoop bij release.</span></div>
+      <div><strong>Geen bankkoppeling</strong><span>Je voert bewust in wat nodig is.</span></div>
+      <div><strong>Lokale data</strong><span>Jouw budget blijft op jouw apparaat.</span></div>
     </section>
 
     <section class="section two-column">
       <div>
         <p class="eyebrow">Waarom Keeep?</p>
-        <h2>Omdat veel mensen hun geld pas begrijpen als het al op is.</h2>
+        <h2>Omdat je geld vaak pas duidelijk wordt als het al weg is.</h2>
       </div>
       <div class="stack">
-        <p>Keeep draait dat om: je plant je geld zodra het binnenkomt. Niet achteraf kijken waar je geld bleef, maar vooraf bepalen waar het naartoe mag.</p>
-        <p>Je maakt potjes voor vaste lasten, dagelijkse uitgaven, spaardoelen, creditcards en buffers. Zo zie je niet alleen je saldo, maar ook wat dat saldo nog moet doen.</p>
+        <p>Keeep draait dat om. Zodra geld binnenkomt, geef je het een taak. Huur, boodschappen, zorg, buffer, vakantie, kleding, auto en vrije ruimte krijgen allemaal hun eigen plek.</p>
+        <p>Niet achteraf kijken waar je geld bleef, maar vooraf bepalen waar het naartoe mag.</p>
+      </div>
+    </section>
+
+    <section class="section steps-band">
+      <div class="section-heading centered">
+        <p class="eyebrow">Hoe het werkt</p>
+        <h2>Een budget dat je ook op een drukke dag begrijpt.</h2>
+      </div>
+      <div class="steps">
+        <article>
+          <span>1</span>
+          <h3>Plan je inkomen</h3>
+          <p>Budgetteer alleen geld dat je hebt. Eerst geld binnen, dan toewijzen.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Vul je potjes</h3>
+          <p>Maak potjes voor vaste lasten, dagelijkse uitgaven, spaardoelen en creditcards.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Stuur rustig bij</h3>
+          <p>Gaat een potje over budget? Dan zie je meteen waar geld vandaan moet komen.</p>
+        </article>
       </div>
     </section>
 
     <section class="section feature-band">
       <div class="section-heading">
         <p class="eyebrow">Wat kun je ermee?</p>
-        <h2>De kern is simpel: verdelen, volgen, bijsturen.</h2>
+        <h2>Alles wat de beta nu moet bewijzen.</h2>
       </div>
       <div class="feature-grid dense">
         <article><h3>Inkomen verdelen</h3><p>Geef iedere euro vooraf een taak.</p></article>
-        <article><h3>Potjes maken</h3><p>Plan vaste lasten, dagelijkse uitgaven en spaardoelen.</p></article>
-        <article><h3>Rollover gebruiken</h3><p>Neem ongebruikt budget mee naar de volgende maand.</p></article>
-        <article><h3>Creditcards verwerken</h3><p>Houd uitgaven en betalingen richting creditcard zichtbaar.</p></article>
-        <article><h3>Back-ups maken</h3><p>Maak en herstel je eigen back-ups wanneer jij dat wilt.</p></article>
-        <article><h3>Meerdere budgetten</h3><p>Werk met verschillende budgetbestanden voor verschillende situaties.</p></article>
-        <article><h3>Lokaal werken</h3><p>Gebruik Keeep zonder bankkoppeling en zonder externe data-opslag.</p></article>
-        <article><h3>Vooruit plannen</h3><p>Maak geldkeuzes voordat de maand je inhaalt.</p></article>
+        <article><h3>Rollover</h3><p>Ongebruikt budget blijft staan voor later.</p></article>
+        <article><h3>Creditcards</h3><p>Uitgaven en betalingen blijven zichtbaar.</p></article>
+        <article><h3>Back-up/herstel</h3><p>Maak zelf back-ups van je budget.</p></article>
+        <article><h3>Meerdere budgetten</h3><p>Werk met verschillende budgetbestanden.</p></article>
+        <article><h3>Geen bankkoppeling</h3><p>Geen toegang tot je bankrekening nodig.</p></article>
+        <article><h3>Lokale opslag</h3><p>Je data blijft op je eigen apparaat.</p></article>
+        <article><h3>Nederlands</h3><p>Budgetteren in normale taal.</p></article>
       </div>
     </section>
 
-    <section class="section two-column">
+    <section class="section two-column soft-panel">
       <div>
         <p class="eyebrow">Voor wie is Keeep?</p>
-        <h2>Voor normale huishoudens die grip willen zonder spreadsheet.</h2>
+        <h2>Voor mensen die grip willen zonder spreadsheet.</h2>
       </div>
       <div class="check-list">
-        <p>Voor mensen die regelmatig denken: waar is mijn geld gebleven?</p>
-        <p>Voor mensen die meer grip willen zonder spreadsheet.</p>
-        <p>Voor mensen die geen abonnement willen voor hun budget-app.</p>
-        <p>Voor mensen die bewust willen budgetteren in het Nederlands.</p>
-        <p>Voor mensen die hun data liever zelf bewaren.</p>
-        <p>Voor mensen die vooruit willen plannen in plaats van achteraf analyseren.</p>
+        <p>Je denkt regelmatig: waar is mijn geld gebleven?</p>
+        <p>Je wilt vooruit plannen in plaats van achteraf analyseren.</p>
+        <p>Je wilt geen abonnement voor een budget-app.</p>
+        <p>Je bewaart je financiele data liever zelf.</p>
       </div>
     </section>
 
-    <section class="section split-band">
-      <div>
+    <section class="section not-section">
+      <div class="section-heading centered">
         <p class="eyebrow">Wat Keeep niet is</p>
-        <h2>Juist door minder te doen, wordt Keeep betrouwbaarder.</h2>
+        <h2>Geen bank-app. Geen voorspeller. Geen financieel advies.</h2>
+        <p class="section-intro">Keeep helpt je simpelweg beslissen wat je geld moet doen. Dat maakt het juist sterk.</p>
       </div>
-      <div class="not-list">
-        <p>Keeep is geen bank-app.</p>
-        <p>Keeep koppelt niet automatisch met je bank.</p>
-        <p>Keeep voorspelt je toekomst niet.</p>
-        <p>Keeep verkoopt geen financieel advies.</p>
-        <p>Keeep helpt je simpelweg beslissen wat je geld moet doen.</p>
+      <div class="not-grid">
+        <article>Keeep koppelt niet automatisch met je bank.</article>
+        <article>Keeep verkoopt geen financiele data.</article>
+        <article>Keeep doet niet alsof geldproblemen vanzelf verdwijnen.</article>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Screenshots</p>
-        <h2>Tijdelijke beelden van de huidige beta.</h2>
-        <p class="section-intro">Nieuwe screenshots van het budgetscherm en de transactiepagina worden later vervangen.</p>
+    <section class="section screenshot-section">
+      <div class="section-heading centered">
+        <p class="eyebrow">Beta beelden</p>
+        <h2>Nu nog tijdelijk. Straks mooier.</h2>
+        <p class="section-intro">Deze screenshots worden later vervangen door betere beelden van het budgetscherm en de transactiepagina.</p>
       </div>
       <div class="screenshot-grid">
         <figure class="product-shot">
@@ -107,6 +137,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
+    <section class="section quote-band">
+      <blockquote>
+        <p>“Budgetteren is niet jezelf beperken. Het is vooraf kiezen waar je geld belangrijk voor is.”</p>
+      </blockquote>
+    </section>
+
     <section class="section beta-callout">
       <div>
         <p class="eyebrow">Beta</p>
@@ -114,42 +150,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p>De kern werkt: budgetteren, rollover, creditcards, back-up/herstel en lokale opslag. We zoeken gebruikers die Keeep in het dagelijks leven willen testen.</p>
       </div>
       <a class="button primary" href="/download/">Ik wil Keeep testen</a>
-    </section>
-
-    <section class="section faq-preview">
-      <p class="eyebrow">FAQ</p>
-      <h2>Belangrijke vragen vooraf</h2>
-      <div class="faq-list">
-        <details open>
-          <summary>Is er een abonnement?</summary>
-          <p>Nee. Keeep wordt geen abonnementsdienst. De definitieve versie wordt een eenmalige aankoop.</p>
-        </details>
-        <details>
-          <summary>Koppelt Keeep met mijn bank?</summary>
-          <p>Nee. Keeep werkt bewust zonder bankkoppeling.</p>
-        </details>
-        <details>
-          <summary>Waar staat mijn data?</summary>
-          <p>Lokaal op je eigen apparaat. Jij beheert je budgetbestanden en back-ups.</p>
-        </details>
-      </div>
-      <a class="text-link" href="/faq/">Bekijk alle vragen</a>
-    </section>
-
-    <section class="section signup">
-      <div>
-        <p class="eyebrow">Beta-toegang</p>
-        <h2>Wil je Keeep testen?</h2>
-        <p>De aanmelding wordt gekoppeld zodra de site online gaat. Voor nu staat de flow klaar: beta-toegang op aanvraag, eerst voor macOS.</p>
-      </div>
-      <form class="signup-form">
-        <label for="email">E-mailadres</label>
-        <div>
-          <input id="email" type="email" placeholder="jij@example.nl" />
-          <button type="button">Ik wil Keeep testen</button>
-        </div>
-        <small>Formulier nog niet gekoppeld. Eerst lokaal goed krijgen, dan hosting en mailflow.</small>
-      </form>
     </section>
   </main>
 </BaseLayout>
