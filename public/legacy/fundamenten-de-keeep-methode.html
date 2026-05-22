@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundamenten: De Keeep-methode</title>
+<style>
+  :root {
+    --ink: #1d1b16;
+    --paper: #faf7f2;
+    --paper-warm: #f3ede2;
+    --accent: #2d5f4e;
+    --accent-soft: #c9d8d0;
+    --muted: #6b6357;
+    --line: #d9d2c4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 28px 96px;
+  }
+  header.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 56px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+  }
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+  .kicker {
+    color: var(--muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin: 0 0 28px;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin: 64px 0 16px;
+    letter-spacing: -0.01em;
+  }
+  h2 .num {
+    display: block;
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  p { margin: 0 0 18px; }
+  .lede {
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  blockquote {
+    margin: 28px 0;
+    padding: 18px 24px;
+    border-left: 3px solid var(--accent);
+    background: var(--paper-warm);
+    font-style: italic;
+    color: var(--ink);
+    border-radius: 0 6px 6px 0;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+  ul.clean {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 24px;
+  }
+  ul.clean li {
+    padding: 10px 0 10px 28px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    position: absolute;
+    left: 4px; top: 19px;
+  }
+  ol.steps {
+    list-style: none;
+    counter-reset: stp;
+    padding: 0;
+    margin: 18px 0 24px;
+  }
+  ol.steps li {
+    counter-increment: stp;
+    padding: 14px 0 14px 48px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  ol.steps li:last-child { border-bottom: none; }
+  ol.steps li::before {
+    content: counter(stp);
+    position: absolute;
+    left: 0; top: 14px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .divider {
+    border: 0;
+    border-top: 1px dashed var(--line);
+    margin: 56px 0;
+  }
+  .toc {
+    background: var(--paper-warm);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 40px 0 56px;
+  }
+  .toc h3 {
+    margin: 0 0 14px;
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 22px;
+    color: var(--accent);
+  }
+  .toc li {
+    margin-bottom: 6px;
+  }
+  .toc a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .toc a:hover { border-bottom-color: var(--accent); }
+  .callout {
+    background: var(--accent);
+    color: var(--paper);
+    padding: 36px 32px;
+    border-radius: 12px;
+    margin: 56px 0 0;
+  }
+  .callout h2 {
+    color: var(--paper);
+    margin-top: 0;
+  }
+  .callout h2 .num { color: var(--accent-soft); }
+  .callout ul.clean li {
+    border-color: rgba(255,255,255,0.18);
+    color: var(--paper);
+  }
+  .callout ul.clean li::before { background: var(--accent-soft); }
+  .signature {
+    margin-top: 48px;
+    font-size: 0.95rem;
+    color: var(--muted);
+    text-align: center;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  em.highlight {
+    background: linear-gradient(transparent 60%, var(--accent-soft) 60%);
+    font-style: normal;
+    padding: 0 2px;
+  }
+  @media (max-width: 540px) {
+    body { font-size: 17px; }
+    .wrap { padding: 40px 20px 72px; }
+    h1 { font-size: 2.1rem; }
+    h2 { font-size: 1.45rem; margin-top: 48px; }
+    .callout { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="brand">
+    <span class="dot"></span>
+    <span>Keeep · Gids</span>
+  </header>
+
+  <div class="kicker">Fundamenten</div>
+  <h1>De Keeep&#8209;methode</h1>
+  <p class="lede">
+    Weet je nog &mdash; als kind &mdash; dat je een verjaardagskaart openmaakte en er een briefje van tien tussen viel? Dat gevoel. Eindeloze mogelijkheden. Je kon het stripboek kopen waar je al weken aan dacht, of een hele zak snoep, of alles bij elkaar sparen voor iets gigantisch.
+  </p>
+  <p>
+    Toen werd je volwassen. En werd geld een stuk minder leuk. Het komt binnen, het gaat eruit, en aan het eind van de maand vraag je je af waar het bleef.
+  </p>
+  <blockquote>
+    <p>Als kind heb je geen geld, dus je verzint alles wat geld voor je zou kunnen doen. Als volwassene verdien je geld &mdash; maar je stopt met verzinnen wat het voor je kan doen.</p>
+  </blockquote>
+  <p>
+    Wat als je dat gevoel terug kunt krijgen?
+  </p>
+
+  <div class="toc">
+    <h3>In deze gids</h3>
+    <ol>
+      <li><a href="#h1">Dit is geen budgetteren</a></li>
+      <li><a href="#h2">Echte mensen, echte verhalen</a></li>
+      <li><a href="#h3">Wat is bewust besteden?</a></li>
+      <li><a href="#h4">De magie van geldhelderheid</a></li>
+      <li><a href="#h5">De Keeep&#8209;methode</a></li>
+      <li><a href="#h6">Het draait om jou &mdash; helemaal</a></li>
+      <li><a href="#h7">Een goed besteed leven</a></li>
+    </ol>
+  </div>
+
+  <h2 id="h1"><span class="num">Hoofdstuk 1</span>Dit is geen budgetteren</h2>
+  <p>
+    Met Keeep willen we dat je je energierekening betaalt &mdash; <em class="highlight">&eacute;n</em> je wildste plannen waarmaakt. Deze app gaat niet over inhouden. Niet over de thermostaat een graadje lager, geen koffie meer bij de bakker op de hoek, geen lol meer hebben tot je met pensioen bent. Dat is absoluut niet de bedoeling.
+  </p>
+  <p>
+    Keeep helpt je bepalen wat voor jou belangrijk is &mdash; en je uitgaven daar naartoe te sturen. Naar het leven dat je wilt.
+  </p>
+  <p>
+    Keeep gaat over veel meer dan sparen. Sterker nog: Keeep gaat over <em class="highlight">geld uitgeven</em>. Alleen dan met aandacht.
+  </p>
+
+  <hr class="divider">
+
+  <h2 id="h2"><span class="num">Hoofdstuk 2</span>Echte mensen, echte verhalen</h2>
+  <p>
+    Wat doen mensen met het geld dat ze niet meer kwijtraken aan onnodige aankopen en abonnementen waar ze niets meer mee deden? Best mooie dingen.
+  </p>
+  <p><strong>Grote dingen:</strong></p>
+  <ul class="clean">
+    <li>Een bruiloft betalen zonder &eacute;&eacute;n cent te lenen</li>
+    <li>De aanbetaling voor een eerste huis bij elkaar gespaard</li>
+    <li>Een sabbatical van een half jaar genomen</li>
+    <li>Schulden bij familie eindelijk afgelost</li>
+    <li>De generatie&#8209;cyclus van geldstress doorbroken</li>
+    <li>Een verbouwing zonder slapeloze nachten</li>
+  </ul>
+  <p><strong>En de alledaagse dingen:</strong></p>
+  <ul class="clean">
+    <li>De duurdere kaas bij de supermarkt &mdash; zonder schuldgevoel</li>
+    <li>Een rondje koffie betalen voor vrienden</li>
+    <li>Maandelijks naar de sportclub of yogales, zonder twijfel</li>
+    <li>Een vast budgetje voor concertkaartjes en festivals</li>
+    <li>Oppas voor een vaste avond samen, geld al opzij gezet</li>
+    <li>Bloemen kopen, gewoon omdat het kan</li>
+  </ul>
+  <p>
+    Wat wordt jouw verhaal?
+  </p>
+
+  <hr class="divider">
+
+  <h2 id="h3"><span class="num">Hoofdstuk 3</span>Wat is bewust besteden?</h2>
+  <p>
+    Als Keeep geen budgetteren is &mdash; wat dan wel? Wij zeggen: het is jezelf kennen, en daarnaar uitgeven. Het is <em class="highlight">bewust besteden</em>.
+  </p>
+  <p>
+    Mensen die met Keeep werken kennen zichzelf, omdat ze er een gewoonte van maken om elke euro een doel te geven. Ze maken regelmatig &mdash; bewust &mdash; keuzes over wat ze met hun zuurverdiende geld doen. En juist daardoor staan ze stil bij wat ze in het leven eigenlijk willen.
+  </p>
+  <p>
+    Het resultaat is een rustig vertrouwen. Het gevoel dat je &eacute;cht kunt zeggen: &ldquo;Dat was goed besteed geld.&rdquo; En het ook menen. Geen schuldgevoel, geen twijfel, geen hoofdrekenen bij de kassa.
+  </p>
+
+  <hr class="divider">
+
+  <h2 id="h4"><span class="num">Hoofdstuk 4</span>De magie van geldhelderheid</h2>
+  <p>
+    &ldquo;Ik heb gewoon meer geld nodig.&rdquo;
+  </p>
+  <p>
+    We snappen het. Maar laten we beginnen bij wat je nu hebt, en daar het maximale uithalen.
+  </p>
+  <p>
+    Bewust uitgeven is de remedie. Bij Keeep noemen we het: <em class="highlight">elke euro een doel geven</em>. Dat is het fundament onder alles wat we doen.
+  </p>
+  <p>
+    Het geheim? Maak een plan voor elke euro &mdash; v&oacute;&oacute;rdat je hem uitgeeft. Niet achteraf goedpraten. Vooraf bepalen.
+  </p>
+  <p>
+    Geen vragen meer over waar je geld bleef. Geen schuldgevoel meer over &ldquo;die ene uitspatting&rdquo; waarvan je je afvraagt of je hem wel kon betalen. Gewoon: helderheid.
+  </p>
+
+  <hr class="divider">
+
+  <h2 id="h5"><span class="num">Hoofdstuk 5</span>De Keeep&#8209;methode</h2>
+  <p>
+    De methode is verrassend eenvoudig:
+  </p>
+  <blockquote>
+    <p><strong>Geef elke euro een doel.</strong></p>
+  </blockquote>
+  <p>
+    Zo werkt het in de praktijk. Pak je salarisstrookje (of wat er op je rekening staat) en stel jezelf deze vragen:
+  </p>
+  <ol class="steps">
+    <li>
+      <strong>Wat moet dit geld doen voordat ik weer betaald krijg?</strong><br>
+      Huur, boodschappen, energie, ov, telefoon &mdash; de basis.
+    </li>
+    <li>
+      <strong>Welke grote, onregelmatige uitgaven komen eraan?</strong><br>
+      De jaarlijkse autoverzekering. Nieuwe banden. Verjaardagen in december. Tandartsbezoek. Ze komen &mdash; je weet alleen niet altijd wanneer.
+    </li>
+    <li>
+      <strong>Wat kan ik opzij zetten voor de volgende maand?</strong><br>
+      Jij van volgende maand zal je dankbaar zijn.
+    </li>
+    <li>
+      <strong>Welke dromen of doelen wil ik voorrang geven?</strong><br>
+      Vakantie naar Portugal? Een nieuwe fiets? Eerder met werken stoppen? Hier komt de lol om de hoek kijken.
+    </li>
+    <li>
+      <strong>Wat moet ik aanpassen, als er iets verandert?</strong><br>
+      Het leven loopt nu eenmaal anders dan het plan. Dat is geen falen &mdash; dat is gewoon woensdag.
+    </li>
+  </ol>
+
+  <hr class="divider">
+
+  <h2 id="h6"><span class="num">Hoofdstuk 6</span>Het draait om jou &mdash; helemaal</h2>
+  <p>
+    Maak van je prioriteiten categorie&euml;n. Huur. Boodschappen. Vakantiepot. Buffer voor noodgevallen. Etentjes uit. De voetbalschoenen van de kinderen. Koffie onderweg. Alles wat voor <em class="highlight">jou</em> belangrijk is.
+  </p>
+  <p>
+    Vervolgens krijgt elke euro die je nu hebt een plek in een van die categorie&euml;n. Zie het als een kaart tekenen van wat voor jou telt.
+  </p>
+  <p>
+    Naarmate je die categorie&euml;n in de loop van de tijd vult, gebeurt er iets bijzonders: je waarden gaan vanzelf zichtbaar worden. Het is alsof je een spiegel voor je geld houdt &mdash; en <em class="highlight">jezelf</em> erin terugziet.
+  </p>
+  <p>
+    Geen mysterie meer. Geen &ldquo;waar bleef het nou?&rdquo;. Alleen helderheid, richting, en doel.
+  </p>
+
+  <hr class="divider">
+
+  <h2 id="h7"><span class="num">Hoofdstuk 7</span>Een goed besteed leven</h2>
+  <p>
+    Bewust besteden gaat over het terugpakken van die spanning, verwondering en vrijheid die je voelde als kind &mdash; toen een briefje in een envelop nog eindeloze mogelijkheden bevatte.
+  </p>
+
+  <div class="callout">
+    <h2><span class="num">Vanaf vandaag</span>Drie kleine gewoonten</h2>
+    <ul class="clean">
+      <li><strong>Geef elke euro een doel.</strong> Echt elke. Ook de kleine.</li>
+      <li><strong>Geef uit met vertrouwen.</strong> Geen schuldgevoel meer.</li>
+      <li><strong>Pas je plan aan als het leven verandert.</strong> Want dat doet het. En dat is prima.</li>
+    </ul>
+  </div>
+
+  <p style="margin-top: 48px;">
+    Welkom bij bewust besteden &mdash; waar elke euro iets betekent, en elke aankoop je een stukje dichter bij het leven brengt dat je wilt.
+  </p>
+  <p>
+    Laten we je geld weer net zo spannend maken als toen je acht was.
+  </p>
+
+  <div class="signature">
+    Keeep &mdash; jouw geld, jouw plan, jouw apparaat.
+  </div>
+
+</div>
+</body>
+</html>

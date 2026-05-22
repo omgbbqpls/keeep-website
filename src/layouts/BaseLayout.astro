@@ -1,0 +1,17 @@
+---
+import '../styles/global.css';
+
+const { title = 'Keeep' } = Astro.props;
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content="Keeep helpt je geld een duidelijk plan te geven." />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

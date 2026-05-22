@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keeep — Handleiding</title>
+  <style>
+    :root {
+      --green:   #00c896;
+      --green-d: #00a87e;
+      --dark:    #0f1117;
+      --panel:   #181c27;
+      --panel2:  #1f2433;
+      --border:  #2a3045;
+      --text:    #e2e8f0;
+      --muted:   #8892a4;
+      --red:     #f56565;
+      --amber:   #f6ad55;
+      --blue:    #63b3ed;
+      --purple:  #b794f4;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── LAYOUT ── */
+    .layout { display: flex; min-height: 100vh; }
+
+    /* ── SIDEBAR NAV ── */
+    nav {
+      width: 260px;
+      min-width: 260px;
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 2rem 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .nav-logo {
+      padding: 0 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .nav-logo h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav-section {
+      padding: 0 1rem 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    nav a {
+      display: block;
+      padding: 0.45rem 1.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      border-radius: 0;
+      transition: color 0.15s, background 0.15s;
+      border-left: 3px solid transparent;
+    }
+    nav a:hover {
+      color: var(--text);
+      background: var(--panel2);
+    }
+    nav a.active {
+      color: var(--green);
+      border-left-color: var(--green);
+      background: rgba(0,200,150,0.08);
+    }
+
+    nav ul { list-style: none; margin-bottom: 1.5rem; }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      flex: 1;
+      max-width: 820px;
+      padding: 3rem 3.5rem;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.55rem; font-weight: 700; margin: 3rem 0 1rem; padding-top: 1rem; letter-spacing: -0.3px; }
+    h3 { font-size: 1.15rem; font-weight: 700; margin: 2rem 0 0.6rem; color: var(--text); }
+    h4 { font-size: 0.95rem; font-weight: 700; margin: 1.5rem 0 0.4rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.04em; }
+    p  { margin-bottom: 1rem; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+    strong { color: #fff; font-weight: 600; }
+    em { color: var(--amber); font-style: normal; font-weight: 500; }
+
+    /* ── SECTIONS ── */
+    section {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+    section:first-of-type { border-top: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, rgba(0,200,150,0.12) 0%, rgba(99,179,237,0.06) 100%);
+      border: 1px solid rgba(0,200,150,0.2);
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid;
+      font-size: 0.93rem;
+    }
+    .callout.tip    { background: rgba(0,200,150,0.08); border-color: var(--green); }
+    .callout.warn   { background: rgba(246,173,85,0.08); border-color: var(--amber); }
+    .callout.info   { background: rgba(99,179,237,0.08); border-color: var(--blue); }
+    .callout.danger { background: rgba(245,101,101,0.08); border-color: var(--red); }
+    .callout-title  { font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .callout.tip    .callout-title { color: var(--green); }
+    .callout.warn   .callout-title { color: var(--amber); }
+    .callout.info   .callout-title { color: var(--blue); }
+    .callout.danger .callout-title { color: var(--red); }
+
+    /* ── TIJDSINVESTERING ── */
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .time-card {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .time-card .duration {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1.2;
+    }
+    .time-card .label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── STAPPEN ── */
+    .steps { counter-reset: step; margin: 1.5rem 0; }
+    .step {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+    .step-num {
+      counter-increment: step;
+      min-width: 2rem;
+      height: 2rem;
+      background: var(--green);
+      color: var(--dark);
+      font-weight: 800;
+      font-size: 0.85rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-body h3 { margin-top: 0; }
+
+    /* ── REKENING TYPES TABEL ── */
+    .acc-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+    .acc-table th {
+      background: var(--panel2);
+      padding: 0.6rem 1rem;
+      text-align: left;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .acc-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .acc-table tr:last-child td { border-bottom: none; }
+    .acc-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .badge.on    { background: rgba(0,200,150,0.15); color: var(--green); }
+    .badge.off   { background: rgba(136,146,164,0.15); color: var(--muted); }
+    .badge.credit { background: rgba(183,148,244,0.15); color: var(--purple); }
+    .badge.debt  { background: rgba(245,101,101,0.15); color: var(--red); }
+
+    /* ── ROUTINE KAARTEN ── */
+    .routine-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .routine-card {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.3rem;
+    }
+    .routine-card h4 { margin-top: 0; font-size: 0.8rem; }
+    .routine-card ul { list-style: none; padding: 0; margin: 0; }
+    .routine-card li {
+      padding: 0.3rem 0;
+      color: var(--text);
+      font-size: 0.88rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0.6rem;
+    }
+    .routine-card li:last-child { border-bottom: none; }
+    .routine-card li::before { content: '→'; color: var(--green); flex-shrink: 0; }
+
+    /* ── CC DIAGRAM ── */
+    .cc-diagram {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .cc-flow {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+    .cc-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      text-align: center;
+      font-size: 0.82rem;
+      min-width: 120px;
+    }
+    .cc-box strong { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 0.2rem; font-weight: 500; }
+    .cc-box .val { font-weight: 700; font-size: 1rem; }
+    .cc-box.highlight { border-color: var(--green); background: rgba(0,200,150,0.07); }
+    .cc-box.neg { border-color: var(--red); background: rgba(245,101,101,0.07); }
+    .arrow { color: var(--muted); font-size: 1.2rem; }
+
+    /* ── DOELEN GRID ── */
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+    }
+    .goal-card {
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .goal-card .goal-type {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--green);
+      margin-bottom: 0.3rem;
+    }
+    .goal-card p { font-size: 0.83rem; color: var(--muted); margin: 0; }
+
+    /* ── INLINE CODE ── */
+    code {
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      background: var(--panel2);
+      border: 1px solid var(--border);
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: var(--green);
+    }
+
+    /* ── FAQ ── */
+    .faq { margin: 1rem 0; }
+    details {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.6rem;
+      background: var(--panel2);
+    }
+    summary {
+      padding: 0.9rem 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.93rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::after { content: '▾'; color: var(--muted); font-size: 0.8rem; }
+    details[open] summary::after { content: '▴'; }
+    details[open] { border-color: var(--green); }
+    .faq-body {
+      padding: 0 1.2rem 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .faq-body p { color: var(--muted); margin-bottom: 0.6rem; }
+    .faq-body strong { color: var(--text); }
+
+    /* ── PAGE PROGRESS (TOP BAR) ── */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--green);
+      z-index: 100;
+      transition: width 0.1s;
+      width: 0%;
+    }
+
+    /* ── SECTION ANCHORS ── */
+    [id] { scroll-margin-top: 2rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { display: none; }
+      main { padding: 2rem 1.5rem; }
+      .routine-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<div class="layout">
+
+  <!-- ── SIDEBAR ── -->
+  <nav id="sidebar">
+    <div class="nav-logo">
+      <h1>Keeep</h1>
+      <p>Handleiding · Geef je geld een plan</p>
+    </div>
+    <ul>
+      <li class="nav-section">Introductie</li>
+      <li><a href="#intro">Over deze handleiding</a></li>
+      <li><a href="#filosofie">De filosofie</a></li>
+      <li><a href="#tijdsinvestering">Tijdsinvestering</a></li>
+    </ul>
+    <ul>
+      <li class="nav-section">Aan de slag</li>
+      <li><a href="#rekeningen">Rekeningen toevoegen</a></li>
+      <li><a href="#categorieen">Categorieën inrichten</a></li>
+      <li><a href="#inkomen">Inkomen instellen</a></li>
+      <li><a href="#eerste-verdeling">Eerste verdeling</a></li>
+    </ul>
+    <ul>
+      <li class="nav-section">Dagelijks gebruik</li>
+      <li><a href="#transacties">Transacties bijhouden</a></li>
+      <li><a href="#budget-beheren">Budget beheren</a></li>
+      <li><a href="#doelen">Spaardoelen instellen</a></li>
+    </ul>
+    <ul>
+      <li class="nav-section">Maandelijkse cyclus</li>
+      <li><a href="#begin-maand">Begin van de maand</a></li>
+      <li><a href="#einde-maand">Einde van de maand</a></li>
+    </ul>
+    <ul>
+      <li class="nav-section">Creditcards</li>
+      <li><a href="#cc-uitleg">Hoe werkt het?</a></li>
+      <li><a href="#cc-toevoegen">Creditcard toevoegen</a></li>
+      <li><a href="#cc-betalingen">Betalingen verwerken</a></li>
+      <li><a href="#cc-schuld">Bestaande schuld</a></li>
+    </ul>
+    <ul>
+      <li class="nav-section">Analyse</li>
+      <li><a href="#inzichten">Inzichten</a></li>
+      <li><a href="#faq">Veelgestelde vragen</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- HERO -->
+    <div class="hero">
+      <h1>Keeep Handleiding</h1>
+      <p class="subtitle">Geef je geld een plan — van eerste opzet tot maandelijkse routine</p>
+    </div>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="intro">
+      <h2>Over deze handleiding</h2>
+      <p>Deze handleiding is geschreven voor iedereen: of je nu nog nooit bewust hebt gebudgetteerd, of al jaren een spreadsheet bijhoudt — Keeep vraagt een andere manier van denken die even wennen is. Neem de tijd om de filosofie te begrijpen. Wie dat overslaat en meteen de knoppen gaat verkennen, raakt verward.</p>
+      <p>De handleiding volgt een logische volgorde: <strong>eerst begrijpen, dan opzetten, dan onderhouden.</strong> Je hoeft hem niet in één keer door te lezen. Gebruik de navigatie links om te springen naar het onderdeel dat je nodig hebt.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="filosofie">
+      <h2>De filosofie achter Keeep</h2>
+
+      <h3>Geef elk euro een doel — vóórdat je het uitgeeft</h3>
+      <p>De meeste mensen denken over budget als een terugblik: "Ik mocht €800 uitgeven aan boodschappen, maar ik heb €930 uitgegeven." Keeep werkt precies andersom. Je verdeelt geld dat je <em>nu al hebt</em> over categorieën, en elke euro die binnenkomt, wijs je direct toe aan een pot. Zo is altijd duidelijk hoeveel er werkelijk beschikbaar is voor elke categorie.</p>
+
+      <div class="callout info">
+        <div class="callout-title">Kernprincipe</div>
+        <p>Je kunt alleen geld verdelen dat er al is. Verwachte inkomsten, bonussen en toekomstige salaris<wbr>betalingen tellen <strong>niet mee</strong> totdat ze daadwerkelijk binnenkomen.</p>
+      </div>
+
+      <h3>Het verschil met een traditioneel budget</h3>
+      <p>Bij een traditioneel budget maak je een plan voor een hele maand: "Ik verwacht €3.000 te verdienen, dus ik mag €600 uitgeven aan boodschappen." Keeep zegt: "Ik heb nu €3.000 op mijn rekening staan — wat doe ik daarmee?" Die kleine verschuiving heeft grote gevolgen:</p>
+      <ul style="list-style:none; padding:0; margin: 1rem 0;">
+        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border); display:flex; gap:0.8rem;"><span style="color:var(--green)">✓</span><span>Je budget is altijd gebaseerd op werkelijkheid, nooit op verwachting.</span></li>
+        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border); display:flex; gap:0.8rem;"><span style="color:var(--green)">✓</span><span>Categorieën met €0 saldo betekenen écht dat er niets meer is — niet dat je het "ongeveer" moet bijhouden.</span></li>
+        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border); display:flex; gap:0.8rem;"><span style="color:var(--green)">✓</span><span>Onverwachte uitgaven vereis<wbr>en een bewuste keuze: je haalt geld weg bij een andere categorie.</span></li>
+        <li style="padding: 0.5rem 0; display:flex; gap:0.8rem;"><span style="color:var(--green)">✓</span><span>Na een paar maanden zie je precies waar je geld echt naartoe gaat.</span></li>
+      </ul>
+
+      <h3>"Klaar om toe te wijzen" — het centrale getal</h3>
+      <p>Rechtsboven in Keeep zie je altijd het bedrag <strong>Klaar om toe te wijzen</strong>. Dit is het geld dat nog geen doel heeft gekregen. Zolang dit getal groen en positief is, heb je geld beschikbaar om te verdelen. Als het rood is, heb je meer verdeeld dan je hebt — en dat is een probleem dat je direct moet oplossen.</p>
+
+      <div class="callout danger">
+        <div class="callout-title">Nooit negatief laten staan</div>
+        <p>Een negatief "Klaar om toe te wijzen" betekent dat je geld dat niet bestaat hebt toegewezen. Je budget klopt dan niet meer. Herstel dit altijd direct door budget weg te halen uit andere categorieën.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="tijdsinvestering">
+      <h2>Hoeveel tijd kost het?</h2>
+      <p>De eerlijke verwachting is dit: Keeep werkt alleen als je het regelmatig doet. Niet als je het eens per maand opstart. De eerste drie maanden kost het wat meer aandacht terwijl je het systeem leert kennen en je categorieën aanpast. Daarna wordt het een vaste, korte gewoonte.</p>
+
+      <div class="time-grid">
+        <div class="time-card">
+          <div class="duration">1–2 uur</div>
+          <div class="label">Eenmalige setup</div>
+        </div>
+        <div class="time-card">
+          <div class="duration">2–5 min</div>
+          <div class="label">Per dag (transacties)</div>
+        </div>
+        <div class="time-card">
+          <div class="duration">15–30 min</div>
+          <div class="label">Begin van elke maand</div>
+        </div>
+        <div class="time-card">
+          <div class="duration">10–20 min</div>
+          <div class="label">Einde van elke maand</div>
+        </div>
+        <div class="time-card">
+          <div class="duration">~1–2 uur</div>
+          <div class="label">Per maand totaal</div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">Sleutel tot succes</div>
+        <p>De dagelijkse 2–5 minuten zijn het meest belangrijk. Wie transacties wekelijks of maandelijks bijwerkt, raakt het overzicht kwijt en haakt af. Maak er een kleine dagelijkse gewoonte van — na het ontbijt, tijdens de lunch, of voor het slapengaan.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="rekeningen">
+      <h2>Stap 1 — Rekeningen toevoegen</h2>
+      <p>Klik op <strong>+ Rekening toevoegen</strong> onderaan de linkerzijbalk. Keeep ondersteunt verschillende rekeningtypen, verdeeld in twee categorieën: <em>on budget</em> en <em>off budget</em>.</p>
+
+      <h3>On budget — telt mee in je budget</h3>
+      <p>Dit zijn de rekeningen waarvan je het saldo actief beheert in Keeep. Transacties op deze rekeningen worden verdeeld over categorieën.</p>
+
+      <h3>Off budget — alleen voor je nettovermogen</h3>
+      <p>Dit zijn bezittingen en schulden die je wilt bijhouden (auto, woning, beleggingen, hypotheek), maar waar je geen dagelijks budget op inricht. Ze tellen wel mee in je nettovermogenoverzicht.</p>
+
+      <table class="acc-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Label</th>
+            <th>Budget</th>
+            <th>Gebruik voor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Betaalrekening</td>
+            <td><span class="badge on">On budget</span></td>
+            <td>Ja</td>
+            <td>Je dagelijkse bankrekening</td>
+          </tr>
+          <tr>
+            <td>Spaarrekening</td>
+            <td><span class="badge on">On budget</span></td>
+            <td>Ja</td>
+            <td>Spaarrekening die gekoppeld is aan je budget</td>
+          </tr>
+          <tr>
+            <td>Contant</td>
+            <td><span class="badge on">On budget</span></td>
+            <td>Ja</td>
+            <td>Contant geld in portemonnee</td>
+          </tr>
+          <tr>
+            <td>Creditcard</td>
+            <td><span class="badge credit">Creditcard</span></td>
+            <td>Ja*</td>
+            <td>Zie het creditcard-hoofdstuk verderop</td>
+          </tr>
+          <tr>
+            <td>Beleggingen</td>
+            <td><span class="badge off">Off budget</span></td>
+            <td>Nee</td>
+            <td>Aandelen, ETF's, DeGiro, etc.</td>
+          </tr>
+          <tr>
+            <td>Woning / Auto</td>
+            <td><span class="badge off">Off budget</span></td>
+            <td>Nee</td>
+            <td>Bezittingen voor nettovermogen</td>
+          </tr>
+          <tr>
+            <td>Hypotheek / Schuld</td>
+            <td><span class="badge debt">Schuld</span></td>
+            <td>Nee</td>
+            <td>Leningen, schulden voor nettovermogen</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout warn">
+        <div class="callout-title">Beginstand invullen</div>
+        <p>Vul bij elke rekening het <strong>huidige saldo</strong> in. Dit wordt verwerkt als een openingsbalanstransactie. Klopt je saldo later niet? Gebruik dan de <strong>Saldo controleren</strong>-functie via het rekeningmenu om een correctie te boeken.</p>
+      </div>
+
+      <h3>Welke rekeningen doe ik on budget?</h3>
+      <p>Vuistregel: elke rekening waarvan je dagelijks geld uitgeeft of spaart voor directe doelen zet je on budget. Beleggingen, pensioen en vermogen voor de lange termijn zet je off budget — die beheer je niet via Keeep, maar je ziet ze wel terug in je nettovermogen.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="categorieen">
+      <h2>Stap 2 — Categorieën inrichten</h2>
+      <p>Keeep maakt automatisch drie standaard groepen aan: <strong>Vaste lasten</strong>, <strong>Dagelijks leven</strong> en <strong>Spaardoelen / vrije ruimte</strong>. Dit is een goed startpunt, maar pas het aan op jouw situatie.</p>
+
+      <h3>Groepen en categorieën</h3>
+      <p>Groepen zijn de overkoepelende thema's (bijv. "Vaste lasten"). Binnen een groep maak je categorieën aan (bijv. "Huur", "Internet", "Verzekering"). Gebruik <strong>+ Groep</strong> om een nieuwe groep toe te voegen, en het <strong>+</strong>-icoontje naast een groepsnaam om een categorie toe te voegen.</p>
+
+      <h3>Tips voor goede categorieën</h3>
+      <p>Begin met minder dan je denkt nodig te hebben. Tien tot vijftien categorieën is genoeg voor de meeste mensen. Te veel categorieën maakt het systeem onbeheersbaar. Je kunt altijd later categorieën samenvoegen of splitsen.</p>
+
+      <div class="callout tip">
+        <div class="callout-title">Praktisch voorbeeld</div>
+        <p>Slechte categorie: "Supermarkt Albert Heijn" — te specifiek. Betere categorie: "Boodschappen" — dekt alle supermarkten. Slechte categorie: "Dingen" — te vaag. Goede categorie: "Kleding & schoenen" — duidelijk maar breed genoeg.</p>
+      </div>
+
+      <h3>Inkomen</h3>
+      <p>De groep <strong>Inkomen</strong> staat bovenaan en wordt automatisch beheerd. Hier komen je inkomstencategorieën in, zoals "Salaris", "Freelance" of "Huurinkomsten". Je hoeft hier geen budget in te zetten — inkomen <em>vult</em> je "Klaar om toe te wijzen" aan.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="inkomen">
+      <h2>Stap 3 — Inkomen registreren</h2>
+      <p>Elke euro die je ontvangt, moet als transactie worden ingevoerd op de juiste rekening, met de bijbehorende inkomstencategorie (bijv. "Salaris"). Zodra dit is ingevoerd, stijgt "Klaar om toe te wijzen" met dat bedrag — en kun je het verdelen.</p>
+
+      <div class="callout tip">
+        <div class="callout-title">Hands-on aanpak</div>
+        <p>Keeep is bedoeld als een bewuste, hands-on manier van budgetteren. Voer elke transactie <strong>zelf in</strong>, op het moment dat je iets uitgeeft of ontvangt. Dat kost maar een paar seconden per transactie en zorgt ervoor dat je altijd weet waar je staat — zonder verassingen.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="eerste-verdeling">
+      <h2>Stap 4 — Eerste verdeling</h2>
+      <p>Je hebt nu rekeningen, categorieën en inkomen staan. Nu is het tijd om het geld te verdelen. Klik in de <strong>Budget</strong>-kolom naast een categorie en vul een bedrag in. Begin met je vaste lasten — deze zijn het makkelijkst in te schatten — en werk dan naar boven toe door.</p>
+
+      <h3>Vul alle potjes — de aanbevolen werkwijze</h3>
+      <p>De kracht van Keeep zit in de combinatie van <strong>doelen</strong> en de knop <strong>↑ Vul alle potjes</strong>. Stel voor elke categorie een doel in (zie het hoofdstuk Spaardoelen), dan weet Keeep precies hoeveel er elke maand in elk potje moet. Met één klik op "Vul alle potjes" wordt je beschikbare "Klaar om toe te wijzen" automatisch verdeeld over alle categorieën op basis van die doelen.</p>
+
+      <div class="callout tip">
+        <div class="callout-title">Advies: stel voor elke categorie een doel in</div>
+        <p>Zonder doel weet Keeep niet hoeveel er in een categorie moet. Met een doel per categorie wordt de maandelijkse verdeling één handeling: klik op "Vul alle potjes" en je budget is klaar. Dat is het hele systeem in één klik.</p>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">Eerste maand</div>
+        <p>De eerste maand is je budget nooit perfect. Dat is normaal. Zet je beste schatting in, houd bij hoe het werkelijk gaat, en pas aan het einde van de maand aan. Na twee à drie maanden heb je een realistisch patroon.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="transacties">
+      <h2>Transacties bijhouden</h2>
+
+      <h3>Een transactie invoeren</h3>
+      <p>Klik op <strong>+ Transactie</strong> bovenaan, of klik op een categorie en gebruik het snelvenster. Vul in:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body"><h3>Datum</h3><p>Standaard staat vandaag ingevuld. Pas aan indien nodig.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body"><h3>Begunstigde</h3><p>Naam van de winkel, persoon of dienst. Keeep onthoudt de laatste categorie die je hebt gebruikt voor die begunstigde en vult deze automatisch in.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body"><h3>Rekening</h3><p>Van welke rekening is het betaald? Kies de juiste on-budget rekening.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body"><h3>Categorie of rekening</h3><p>Kies de categorie waaruit dit betaald wordt. Bij een overboeking tussen eigen rekeningen kies je <code>⇄ Rekeningnaam</code> — dit maakt een overboekingspaar aan en telt niet als uitgave.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body"><h3>Bedrag</h3><p>Vul het bedrag in bij Uitgaand (uitgave) of Inkomend (ontvangst/inkomen).</p></div>
+        </div>
+      </div>
+
+      <h3>Overschrijvingen tussen rekeningen</h3>
+      <p>Een overboeking van je betaalrekening naar je spaarrekening is <strong>geen uitgave</strong>. Gebruik hiervoor de <code>⇄ Rekeningnaam</code>-optie in het categorieveld. Keeep maakt dan automatisch een bijpassende transactie aan op de doelrekening en het geld blijft in je budget.</p>
+
+      <h3>Transacties filteren en sorteren</h3>
+      <p>In de transactieweergave kun je filteren op periode (deze week, deze maand, dit kwartaal, dit jaar of een aangepaste periode) via de <strong>filterknop</strong> rechts boven de lijst. Je kunt ook sorteren op datum, bedrag of begunstigde door op de kolomkoptekst te klikken.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="budget-beheren">
+      <h2>Budget beheren</h2>
+
+      <h3>Geld verschuiven tussen categorieën</h3>
+      <p>Soms geef je meer uit dan je had ingepland. In plaats van in paniek te raken: haal geld weg bij een categorie waar je deze maand minder van verwacht te gebruiken. Klik op een categorie en gebruik <strong>Geld verplaatsen</strong> in het detailpaneel rechts.</p>
+
+      <div class="callout warn">
+        <div class="callout-title">Rode balans = actie vereist</div>
+        <p>Een categorie met een rode (negatieve) balans betekent dat je meer hebt uitgegeven dan er was. Dit <em>moet</em> worden opgelost — anders klopt je totale budget niet. Gebruik "Tekort dekken" om snel budget van elders toe te wijzen.</p>
+      </div>
+
+      <h3>Filters in de budgetweergave</h3>
+      <p>Gebruik de filterknoppen boven het budget om snel te zien welke categorieën aandacht nodig hebben:</p>
+      <ul style="list-style:none; padding:0; margin:0.5rem 0;">
+        <li style="padding:0.4rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.8rem;"><strong style="min-width:100px;">Te weinig</strong><span style="color:var(--muted)">Categorieën die nog niet genoeg budget hebben voor hun doel</span></li>
+        <li style="padding:0.4rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.8rem;"><strong style="min-width:100px;">Overschreden</strong><span style="color:var(--muted)">Categorieën met een negatieve balans — direct actie vereist</span></li>
+        <li style="padding:0.4rem 0; display:flex; gap:0.8rem;"><strong style="min-width:100px;">Klaar</strong><span style="color:var(--muted)">Categorieën die volledig zijn gevuld voor deze maand</span></li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="doelen">
+      <h2>Spaardoelen instellen</h2>
+      <p>Doelen geven Keeep de informatie om je te vertellen hoeveel je elke maand in een categorie moet stoppen. Klik op een categorie en klik daarna op <strong>🎯 Budget instellen</strong> in het detailpaneel.</p>
+
+      <div class="goal-grid">
+        <div class="goal-card">
+          <div class="goal-type">Wekelijks bedrag</div>
+          <p>Vaste uitgave elke week, bijv. boodschappen of benzine.</p>
+        </div>
+        <div class="goal-card">
+          <div class="goal-type">Maandelijks bedrag</div>
+          <p>Vaste maandelijkse lasten, bijv. huur, abonnementen.</p>
+        </div>
+        <div class="goal-card">
+          <div class="goal-type">Per kwartaal</div>
+          <p>Kosten die elke drie maanden terugkeren.</p>
+        </div>
+        <div class="goal-card">
+          <div class="goal-type">Per jaar</div>
+          <p>Jaarlijkse kosten, bijv. verzekeringen, vakantie. Keeep berekent wat je maandelijks opzij moet zetten.</p>
+        </div>
+        <div class="goal-card">
+          <div class="goal-type">Streefbedrag</div>
+          <p>Spaar naar een vast bedrag op een vaste datum, bijv. een nieuwe laptop of noodfonds.</p>
+        </div>
+        <div class="goal-card">
+          <div class="goal-type">Aangepast budget</div>
+          <p>Volledig vrij in te stellen, voor situaties die niet in bovenstaande categorieën passen.</p>
+        </div>
+      </div>
+
+      <p>Zodra een doel is ingesteld, toont Keeep een voortgangsbalk per categorie en kleurt de balans groen zodra het doel is gehaald. De knop <strong>↑ Vul alle potjes</strong> gebruikt deze doelen om automatisch budget toe te wijzen.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="begin-maand">
+      <h2>Begin van de maand</h2>
+
+      <div class="routine-grid">
+        <div class="routine-card">
+          <h4>Wat te doen</h4>
+          <ul>
+            <li>Controleer "Klaar om toe te wijzen"</li>
+            <li>Wijs nieuw inkomen toe aan categorieën</li>
+            <li>Gebruik "Vul alle potjes" als eerste stap</li>
+            <li>Verdeel eventueel resterende budget</li>
+            <li>Stel nieuwe doelen in voor veranderde situaties</li>
+          </ul>
+        </div>
+        <div class="routine-card">
+          <h4>Waarop letten</h4>
+          <ul>
+            <li>Zijn er onverwachte rekeningen aankomend?</li>
+            <li>Zijn er categorieën bijgekomen of vervallen?</li>
+            <li>Staat "Klaar om toe te wijzen" op €0,00?</li>
+            <li>Zijn er creditcardbetalingen te verwachten?</li>
+            <li>Klopt de creditcardbalans met de rekening?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">Doel: €0,00 klaar om toe te wijzen</div>
+        <p>Aan het einde van de maandelijkse verdeling moet "Klaar om toe te wijzen" op €0,00 staan. Niet meer, niet minder. Elke euro heeft dan een doel gekregen. Staat er nog iets over? Stop het in je noodfonds, je spaarpot of volgende maand's buffer.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="einde-maand">
+      <h2>Einde van de maand</h2>
+      <p>Aan het einde van de maand evalueer je hoe het is gegaan en bereid je de volgende maand voor.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body"><h3>Controleer alle categorieën</h3><p>Zijn er categorieën in het rood? Los deze op met "Tekort dekken" of door budget te verschuiven. Begin nooit een nieuwe maand met negatieve balansen.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body"><h3>Evalueer je schattingen</h3><p>Welke categorieën waren te hoog of te laag ingeschat? Pas je doelen voor de volgende maand aan op basis van wat je hebt geleerd.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body"><h3>Overschotten bewust bestemmen</h3><p>Categorieën met een positief saldo schuiven automatisch door naar de volgende maand. Besluit bewust: laat het staan, of haal het weg en stop het in een spaardoel.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body"><h3>Bekijk de Inzichten</h3><p>Ga naar de <strong>Inzichten</strong>-pagina voor een overzicht van inkomen vs. uitgaven, nettovermogen over tijd en je top-categorieën. Dit geeft inzicht in je langetermijnpatronen.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="cc-uitleg">
+      <h2>Creditcards — hoe werkt het?</h2>
+      <p>Creditcards zijn het onderdeel dat de meeste verwarring veroorzaakt in Keeep — en terecht, want ze werken fundamenteel anders dan gewone rekeningen. Neem de tijd om dit goed te begrijpen.</p>
+
+      <h3>Het kernprobleem met creditcards</h3>
+      <p>Als je met een creditcard betaalt, gaat het geld <em>niet direct</em> van je rekening af. Dat gebeurt pas als je de creditcardrekening betaalt. Maar het geld dat je uitgeeft, heb je al wel <em>budgettair</em> toegewezen aan een categorie. Keeep moet dit dubbele boekhoudsysteem bijhouden.</p>
+
+      <div class="cc-diagram">
+        <p style="text-align:center; color:var(--muted); font-size:0.85rem; margin-bottom:1rem;">Hoe een creditcardbetaling stroomt in Keeep</p>
+        <div class="cc-flow">
+          <div class="cc-box">
+            <strong>Aankoop</strong>
+            <span class="val">€50 boodschappen</span>
+          </div>
+          <span class="arrow">→</span>
+          <div class="cc-box neg">
+            <strong>Categorie</strong>
+            <span class="val">−€50 Boodschappen</span>
+          </div>
+          <span class="arrow">+</span>
+          <div class="cc-box neg">
+            <strong>CC schuld</strong>
+            <span class="val">−€50 op CC rekening</span>
+          </div>
+        </div>
+        <div class="cc-flow">
+          <div class="cc-box highlight">
+            <strong>CC betaling</strong>
+            <span class="val">€50 van bank → CC</span>
+          </div>
+          <span class="arrow">→</span>
+          <div class="cc-box highlight">
+            <strong>CC categorie</strong>
+            <span class="val">−€50 besteed</span>
+          </div>
+          <span class="arrow">→</span>
+          <div class="cc-box highlight">
+            <strong>Schuld weg</strong>
+            <span class="val">CC saldo weer €0</span>
+          </div>
+        </div>
+      </div>
+
+      <p>Keeep houdt dit automatisch bij. Jij hoeft niet twee keer te boekhouden — maar je moet wel begrijpen <em>wat</em> er zichtbaar is in het budget.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="cc-toevoegen">
+      <h2>Creditcard toevoegen</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body"><h3>Klik op "+ Rekening toevoegen"</h3><p>Kies het type <strong>Creditcard</strong>. Vul de naam en het huidige saldo in.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body"><h3>Saldo instellen</h3><p>Vul het <em>huidige saldo</em> van je creditcard in. Is dit €0? Dan heb je geen openstaande schuld. Is dit negatief (bijv. −€700)? Dan is dat de bestaande schuld — zie het volgende hoofdstuk.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body"><h3>Automatische categorie</h3><p>Keeep maakt automatisch een categorie <strong>💳 [naam]</strong> aan in de groep "Creditcard betalingen". Dit is het centrale punt waar je ziet hoeveel je klaarstaat om de creditcardrekening te betalen.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="cc-betalingen">
+      <h2>Creditcardbetalingen verwerken</h2>
+
+      <h3>Dagelijkse uitgaven op de creditcard</h3>
+      <p>Boek uitgaven op je creditcard gewoon als een normale transactie: selecteer de creditcardrekening als bron, en kies de bijbehorende categorie (bijv. "Boodschappen"). Het saldo van die categorie daalt, en de balans van de creditcardcategorie in het budget geeft aan hoeveel er klaarstaat om de rekening te betalen.</p>
+
+      <h3>De maandelijkse creditcardbetaling</h3>
+      <p>Wanneer je de creditcardrekening betaalt vanuit je betaalrekening, voer je een <strong>overboeking</strong> in: van betaalrekening <code>⇄</code> naar creditcardrekening. Dit is <em>geen</em> uitgave — het geld was al geregistreerd als schuld. Het saldo van de creditcardrekening gaat omhoog (schuld daalt), en je betaalrekening daalt.</p>
+
+      <div class="callout info">
+        <div class="callout-title">De creditcardcategorie in het budget</div>
+        <p>De categorie "💳 Creditcard" in het budget toont hoeveel er <em>gereserveerd staat</em> voor je creditcardbetaling. Staat er meer dan genoeg? Prima. Staat er minder? Dan zijn er uitgaven op de creditcard gedaan die niet volledig zijn gedekt door budget — een teken dat je elders tekort bent gegaan.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="cc-schuld">
+      <h2>Bestaande creditcardschuld</h2>
+      <p>Dit is de situatie die het meeste uitleg vraagt. Je hebt een creditcard met een openstaande schuld — zeg €700 — en je voegt hem toe aan Keeep.</p>
+
+      <h3>Wat er automatisch gebeurt</h3>
+      <p>Keeep maakt een openingsbalanstransactie aan van −€700 op de creditcardrekening. Dit vertegenwoordigt de bestaande schuld. In de budgetcategorie "💳 Creditcard" staat dan meteen een tekort van €700, omdat die schuld nog niet is gedekt door budget.</p>
+
+      <h3>Wat jij moet doen</h3>
+      <p>Klik op de creditcardcategorie. Je ziet de melding dat er een tekort is. Gebruik <strong>Tekort dekken</strong> om €700 budget toe te wijzen aan de creditcardcategorie, of vul het budgetveld handmatig in. Dat geld wordt dan gereserveerd voor het afbetalen van de schuld.</p>
+
+      <div class="callout warn">
+        <div class="callout-title">Heb je het geld niet?</div>
+        <p>Als je €700 schuld hebt maar niet genoeg "Klaar om toe te wijzen" om dit te dekken, dan is dat een eerlijk beeld van je situatie. Plan maandelijks een vast bedrag in de creditcardcategorie om de schuld stap voor stap af te lossen. Gebruik het type <strong>Maandelijks bedrag</strong> als doel.</p>
+      </div>
+
+      <h3>Samengevat: creditcard gouden regels</h3>
+      <ul style="list-style:none; padding:0; margin:0.5rem 0;">
+        <li style="padding:0.5rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.8rem;"><span style="color:var(--green)">1</span><span>Voer elke creditcarduitgave in met de juiste categorie — nooit zonder categorie.</span></li>
+        <li style="padding:0.5rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.8rem;"><span style="color:var(--green)">2</span><span>Betaal je creditcard via een overboeking, niet als uitgave.</span></li>
+        <li style="padding:0.5rem 0; border-bottom:1px solid var(--border); display:flex; gap:0.8rem;"><span style="color:var(--green)">3</span><span>Houd de creditcardcategorie in het budget positief — dat is je "reservepotje" voor de rekening.</span></li>
+        <li style="padding:0.5rem 0; display:flex; gap:0.8rem;"><span style="color:var(--green)">4</span><span>Bestaande schuld: dek dit tekort direct, of plan een maandelijkse aflossing.</span></li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="inzichten">
+      <h2>Inzichten</h2>
+      <p>De <strong>Inzichten</strong>-pagina geeft je een visueel overzicht van je financiën over de afgelopen 12 maanden. Je vindt er vier kaarten:</p>
+
+      <h3>Nettovermogen over tijd</h3>
+      <p>Een grafiek van je totale nettovermogen per maand: alle bezittingen minus alle schulden. Dit is de meest eerlijke maatstaf voor je financiële gezondheid op de lange termijn. Een stijgende lijn is het doel.</p>
+
+      <h3>Inkomen vs. uitgaven</h3>
+      <p>Een staafdiagram dat per maand laat zien hoeveel je hebt verdiend en hoeveel je hebt uitgegeven. Maanden waarbij de uitgaven boven het inkomen uitkomen zijn een signaal om je budget aan te scherpen.</p>
+
+      <h3>Uitgaven per groep (donut)</h3>
+      <p>Een cirkeldiagram van je uitgaven deze maand, opgedeeld per groep. Handig om snel te zien waar het meeste geld naartoe gaat.</p>
+
+      <h3>Top categorieën</h3>
+      <p>De vijf categorieën met de hoogste uitgaven of inkomsten deze maand. Nuttig voor het ontdekken van onverwachte uitschieters.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════ -->
+    <section id="faq">
+      <h2>Veelgestelde vragen</h2>
+      <div class="faq">
+
+        <details>
+          <summary>Moet ik elke transactie handmatig invoeren?</summary>
+          <div class="faq-body">
+            <p>Ja — en dat is met opzet. Keeep is gebouwd voor een bewuste, hands-on aanpak. Elke transactie die je zelf invoert dwingt je even na te denken over wat je uitgeeft en waaraan. Dat is precies waar het systeem zijn kracht vandaan haalt.</p>
+            <p>In de praktijk kost het invoeren van een transactie slechts 15 à 30 seconden. Doe het direct op het moment van de uitgave — dan vergeet je niets en blijft je budget altijd actueel.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Wat doe ik als mijn rekening niet klopt met Keeep?</summary>
+          <div class="faq-body">
+            <p>Gebruik de functie <strong>Saldo controleren</strong> (bereikbaar via het drie-puntjes-menu bij een rekening). Keeep berekent het verschil en biedt aan om een correctietransactie te boeken. Doe dit alleen als je zeker weet dat er een transactie ontbreekt — anders klopt je budget ook niet.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Mijn "Klaar om toe te wijzen" staat rood. Wat nu?</summary>
+          <div class="faq-body">
+            <p>Je hebt meer budget toegewezen dan je hebt. Dit los je op door budget <em>weg te halen</em> bij categorieën — niet door meer toe te voegen. Ga door de categorieën heen en haal budget terug uit categorieën die overschot hebben of die je deze maand minder zult gebruiken.</p>
+            <p>Gebruik de knop <strong>Herstel overschrijding</strong> als deze verschijnt bovenaan het budget voor snelle suggesties.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Schuift ongebruikt budget door naar de volgende maand?</summary>
+          <div class="faq-body">
+            <p>Ja. Als je in een categorie €100 budget had en maar €60 hebt uitgegeven, schuift de resterende €40 door als beginbalans naar de volgende maand. Je kunt dit bewust inzetten: spaardoelen bouwen zo over meerdere maanden op zonder dat je elke maand opnieuw het totaalbedrag hoeft toe te wijzen.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Kan ik categorieën hernoemen of verwijderen?</summary>
+          <div class="faq-body">
+            <p>Ja. Klik op een categorie, dan kun je via het detailpaneel de naam aanpassen of de categorie verwijderen. Let op: verwijder je een categorie met transacties, dan raken die transacties hun categorie kwijt en worden ze ongecategoriseerd.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Wat is het verschil tussen "Betaalrekening" en "Spaarrekening"?</summary>
+          <div class="faq-body">
+            <p>In Keeep werken ze allebei hetzelfde — beide zijn on-budget rekeningen. Het onderscheid is puur voor de overzichtelijkheid in je rekeningen-lijst. Je kunt op beide rekeningen transacties boeken en overboekingen tussen de twee zijn gewone overboekingen binnen je budget.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Hoe verwerk ik een terugbetaling of restitutie?</summary>
+          <div class="faq-body">
+            <p>Boek het als een <em>inkomende</em> transactie op dezelfde categorie waaruit de oorspronkelijke uitgave is gedaan. Stel: je krijgt €30 terug van een aankoop uit "Kleding". Voer in: Inkomend €30, categorie "Kleding". Het saldo van die categorie stijgt dan met €30.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Keeep slaat mijn data lokaal op — wat als ik de app opnieuw installeer?</summary>
+          <div class="faq-body">
+            <p>Keeep slaat alle data lokaal op in de browser. Als je de browser-cache wist of een andere browser gebruikt, is je data weg. Maak daarom regelmatig een export via de exportfunctie van de app en sla dit bestand op een veilige plek op.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; text-align: center;">
+      Keeep Handleiding · Geef je geld een plan
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // ── Voortgangsbalk ──
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const pct = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  });
+
+  // ── Actieve navigatielink ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  // ── Smooth scroll ──
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
