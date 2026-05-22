@@ -333,7 +333,8 @@ main {
 .split-band,
 .beta-callout,
 .signup,
-.method-example {
+.method-example,
+.method-groups {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
   gap: clamp(28px, 6vw, 84px);
@@ -342,7 +343,8 @@ main {
 
 .stack,
 .check-list,
-.not-list {
+.not-list,
+.group-list {
   display: grid;
   gap: 16px;
 }
@@ -410,6 +412,8 @@ main {
 .post-list article,
 .download-notes,
 .method-example,
+.method-groups,
+.group-list article,
 .price-panel,
 .check-list p,
 .not-list p,
@@ -428,6 +432,8 @@ main {
 .post-list article,
 .download-notes,
 .price-panel,
+.method-groups,
+.group-list article,
 .not-grid article {
   padding: 22px;
 }
@@ -693,6 +699,38 @@ main {
   padding: 26px;
 }
 
+.method-groups {
+  margin-top: 38px;
+  background: var(--mint);
+}
+
+.method-groups h2 {
+  font-size: clamp(28px, 3vw, 40px);
+}
+
+.method-groups p {
+  margin-top: 12px;
+}
+
+.group-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.group-list article {
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: none;
+}
+
+.group-list h3 {
+  font-size: 20px;
+}
+
+.group-list p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
 .method-example ul {
   display: grid;
   gap: 10px;
@@ -767,6 +805,7 @@ main {
   .beta-callout,
   .signup,
   .method-example,
+  .method-groups,
   .price-panel,
   .signup-form div {
     grid-template-columns: 1fr;
@@ -781,6 +820,7 @@ main {
   .feature-grid.compact,
   .post-list,
   .not-grid,
+  .group-list,
   .trust-strip {
     grid-template-columns: 1fr;
   }

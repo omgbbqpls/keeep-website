@@ -9,7 +9,7 @@ Keeep is duidelijk geinspireerd door envelope budgeting, zero-based budgeting en
 - Niet-maandelijkse kosten opdelen in haalbare maandbedragen.
 - Buffer opbouwen zodat betaaldagen minder bepalend worden.
 - Flexibel bijsturen zonder schuldgevoel.
-- Geldvaardigheid behandelen als iets dat je kunt leren, niet als iets dat je wel of niet bent.
+- Praktisch blijven bijsturen in plaats van perfect willen budgetteren.
 
 ## Waar Keeep bewust anders staat
 
@@ -18,6 +18,7 @@ Keeep is duidelijk geinspireerd door envelope budgeting, zero-based budgeting en
 - Geen abonnement.
 - Nederlands, nuchter en gericht op normale huishoudens.
 - Geen beloftes over sync, mobiele apps of automatische import zolang die niet echt gebouwd en getest zijn.
+- De publieke methode gebruikt de Keeep-groepen: Vaste lasten, Dagelijks leven, Vrije ruimte en Voor later.
 
 ## Blogpijlers
 
@@ -27,7 +28,8 @@ Uitleg over vooraf plannen, potjes, rollover, creditcards, tekorten oplossen en 
 
 Mogelijke artikelen:
 
-- Van saldo naar potjes.
+- De vier groepen van Keeep.
+- Van saldo naar een verdeeld budget.
 - Budgetteren is niet jezelf beperken.
 - Waarom je alleen geld budgetteert dat je hebt.
 - Een maand vooruit komen zonder jezelf gek te maken.
@@ -60,7 +62,7 @@ Praktische handleidingen voor nieuwe gebruikers.
 Mogelijke artikelen:
 
 - Je eerste Keeep-budget in 30 minuten.
-- Welke potjes maak je als je net begint?
+- Hoe deel je je geld op in Vaste lasten, Dagelijks leven, Vrije ruimte en Voor later?
 - Creditcards gebruiken zonder het overzicht kwijt te raken.
 
 ## Toon
