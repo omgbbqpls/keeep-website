@@ -2,45 +2,75 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Keeep Blog" description="Artikelen en updates over Keeep en budgetteren.">
-  <main class="page narrow">
+  <main class="page blog-index">
     <section class="page-hero">
       <p class="eyebrow">Blog</p>
       <h1>Leren budgetteren zonder financieel circus.</h1>
       <p class="intro">
-        Hier komen straks korte, praktische stukken over geld vooraf plannen, potjes bouwen,
-        lokaal werken en betere keuzes maken. Geen contentfabriek, wel bruikbare uitleg.
+        Korte, praktische stukken over vooruit plannen, potjes bouwen en betere keuzes maken
+        met je geld. Nuchter uitgelegd, zonder ruis.
       </p>
     </section>
     <section class="post-list">
-      <article>
-        <p class="eyebrow">Privacy</p>
-        <h2>Waarom Keeep zonder bankkoppeling begint</h2>
-        <p>Over vertrouwen, lokale data en waarom bewust invoeren soms juist rustiger is dan automatiseren.</p>
+      <article class="blog-card">
+        <a href="/blog/waarom-keeep-geen-bankkoppeling-ondersteunt/" aria-label="Lees Waarom Keeep anders begint">
+          <img src="/images/blog/privacy-bankkoppeling.svg" alt="" />
+          <div class="blog-card-body">
+            <p class="eyebrow">Privacy</p>
+            <h2>Waarom Keeep anders begint</h2>
+            <p>Over privacy, eerlijkheid, rust en eigenaarschap als uitgangspunt voor je budget.</p>
+            <p class="post-meta">Keeep team | Mei 2026</p>
+          </div>
+        </a>
       </article>
-      <article>
-        <p class="eyebrow">Methode</p>
-        <h2>De vier groepen van Keeep</h2>
-        <p>Waarom vaste lasten, dagelijks leven, vrije ruimte en voor later genoeg structuur geven om te beginnen.</p>
+      <article class="blog-card">
+        <a href="/blog/de-vier-groepen-van-keeep/" aria-label="Lees De vier groepen van Keeep">
+          <img src="/images/blog/vier-groepen.svg" alt="" />
+          <div class="blog-card-body">
+            <p class="eyebrow">Methode</p>
+            <h2>De vier groepen van Keeep</h2>
+            <p>Waarom vaste lasten, dagelijks leven, vrije ruimte en voor later genoeg structuur geven om te beginnen.</p>
+            <p class="post-meta">Keeep team | Mei 2026</p>
+          </div>
+        </a>
       </article>
-      <article>
-        <p class="eyebrow">Methode</p>
-        <h2>Een maand vooruit komen</h2>
-        <p>Hoe een buffer tussen salaris en uitgaven zorgt dat betaaldagen minder belangrijk worden.</p>
+      <article class="blog-card">
+        <a href="/blog/een-maand-vooruit-komen/" aria-label="Lees Een maand vooruit komen">
+          <img src="/images/blog/maand-vooruit.svg" alt="" />
+          <div class="blog-card-body">
+            <p class="eyebrow">Methode</p>
+            <h2>Een maand vooruit komen</h2>
+            <p>Hoe een buffer tussen salaris en uitgaven zorgt dat betaaldagen minder belangrijk worden.</p>
+            <p class="post-meta">Keeep team | Mei 2026</p>
+          </div>
+        </a>
       </article>
-      <article>
-        <p class="eyebrow">Methode</p>
-        <h2>Waarom budgetteren niet hetzelfde is als jezelf beperken</h2>
-        <p>Over vooraf kiezen, flexibel bijsturen en geld uitgeven zonder steeds te twijfelen.</p>
+      <article class="blog-card">
+        <img src="/images/blog/budgetteren-niet-beperken.svg" alt="" />
+        <div class="blog-card-body">
+          <p class="eyebrow">Methode</p>
+          <h2>Waarom budgetteren niet hetzelfde is als jezelf beperken</h2>
+          <p>Over vooraf kiezen, flexibel bijsturen en geld uitgeven zonder steeds te twijfelen.</p>
+          <p class="post-meta">Keeep team | Binnenkort</p>
+        </div>
       </article>
-      <article>
-        <p class="eyebrow">Beta</p>
-        <h2>De eerste macOS beta</h2>
-        <p>Welke onderdelen stabiel moeten voelen voordat Windows volgt.</p>
+      <article class="blog-card">
+        <img src="/images/blog/macos-beta.svg" alt="" />
+        <div class="blog-card-body">
+          <p class="eyebrow">Beta</p>
+          <h2>De eerste macOS beta</h2>
+          <p>Welke onderdelen stabiel moeten voelen voordat Windows volgt.</p>
+          <p class="post-meta">Keeep team | Binnenkort</p>
+        </div>
       </article>
-      <article>
-        <p class="eyebrow">Praktisch</p>
-        <h2>Je eerste Keeep-budget in 30 minuten</h2>
-        <p>Een startgids voor rekeningen, de vier groepen, creditcards, back-ups en je eerste maandbudget.</p>
+      <article class="blog-card">
+        <img src="/images/blog/eerste-budget.svg" alt="" />
+        <div class="blog-card-body">
+          <p class="eyebrow">Praktisch</p>
+          <h2>Je eerste Keeep-budget in 30 minuten</h2>
+          <p>Een startgids voor rekeningen, de vier groepen, creditcards, back-ups en je eerste maandbudget.</p>
+          <p class="post-meta">Keeep team | Binnenkort</p>
+        </div>
       </article>
     </section>
   </main>

@@ -1,0 +1,14 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="540" fill="#EEE7FF"/>
+  <path d="M0 110C174 44 300 102 458 210C616 318 742 368 960 252V540H0V110Z" fill="#E8F9F2"/>
+  <circle cx="720" cy="116" r="178" fill="#7342F5" fill-opacity=".16"/>
+  <rect x="222" y="174" width="220" height="190" rx="30" fill="#FFFFFF" stroke="#141827" stroke-width="8"/>
+  <rect x="518" y="174" width="220" height="190" rx="30" fill="#FFFFFF" stroke="#141827" stroke-width="8"/>
+  <rect x="258" y="222" width="148" height="28" rx="14" fill="#12A971"/>
+  <rect x="258" y="282" width="104" height="28" rx="14" fill="#DBE1EC"/>
+  <rect x="554" y="222" width="148" height="28" rx="14" fill="#7342F5"/>
+  <rect x="554" y="282" width="104" height="28" rx="14" fill="#DBE1EC"/>
+  <path d="M480 382C480 301 480 212 480 134" stroke="#141827" stroke-width="10" stroke-linecap="round"/>
+  <path d="M480 210C422 176 383 147 338 88C419 83 472 116 480 210Z" fill="#A8EA5A" stroke="#141827" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M480 278C552 232 602 213 686 214C625 290 558 321 480 278Z" fill="#12A971" stroke="#141827" stroke-width="8" stroke-linejoin="round"/>
+</svg>

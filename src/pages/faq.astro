@@ -2,15 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const questions = [
-  ['Is Keeep gratis?', 'Tijdens de beta is Keeep beperkt beschikbaar voor testers. De definitieve versie wordt een eenmalige aankoop.'],
-  ['Is er een abonnement?', 'Nee. Keeep wordt geen abonnementsdienst.'],
-  ['Koppelt Keeep met mijn bank?', 'Nee. Keeep werkt bewust zonder bankkoppeling.'],
-  ['Waar staat mijn data?', 'Lokaal op je eigen apparaat. Je kunt zelf back-ups maken en herstellen.'],
-  ['Werkt Keeep op Windows en macOS?', 'macOS is beschikbaar als beta. Windows wordt getest en volgt later.'],
-  ['Kan ik creditcards gebruiken?', 'Ja. Keeep ondersteunt creditcarduitgaven en betalingen richting creditcard.'],
-  ['Wordt ongebruikt budget meegenomen?', 'Ja. Budgetten kunnen maand-op-maand blijven staan, zodat potjes natuurlijk groeien.'],
-  ['Is Keeep financieel advies?', 'Nee. Keeep is een hulpmiddel om je eigen geld te plannen.'],
-  ['Wat als ik rood sta of te weinig budget heb?', 'Dan maakt Keeep zichtbaar dat geld ergens anders vandaan moet komen. Het doel is bewust kiezen, niet doen alsof het probleem niet bestaat.']
+  ['Waar helpt Keeep bij?', 'Keeep helpt je vooruit plannen met geld dat er al is. Je verdeelt inkomen over duidelijke potjes, ziet wat echt beschikbaar is en stuurt rustig bij als een maand anders loopt.'],
+  ['Voor wie is Keeep bedoeld?', 'Voor mensen die grip willen zonder spreadsheet, bank-app of financieel jargon. Keeep is gemaakt voor normale huishoudens die vooraf willen bepalen wat hun geld moet doen.'],
+  ['Hoe werkt budgetteren in Keeep?', 'Je geeft iedere euro een taak. Eerst komt er geld binnen, daarna verdeel je het over vaste lasten, dagelijks leven, vrije ruimte en potjes voor later.'],
+  ['Wat gebeurt er met ongebruikt budget?', 'Dat blijft staan in je potje. Zo groeien buffers vanzelf mee en hoef je minder te schrikken van kosten die later komen.'],
+  ['Kan ik creditcards gebruiken?', 'Ja. Keeep laat creditcarduitgaven en betalingen zichtbaar naast je gewone budget lopen, zodat je overzicht houdt.'],
+  ['Waar staat mijn data?', 'Op je eigen apparaat. Je bewaart je budget lokaal en kunt zelf back-ups maken en herstellen.'],
+  ['Hoeveel kost Keeep?', 'Tijdens de beta is Keeep beperkt beschikbaar voor testers. De definitieve versie wordt een eenmalige aankoop.'],
+  ['Werkt Keeep op Windows en macOS?', 'De macOS beta is beschikbaar. Windows volgt zodra die versie goed genoeg getest is.'],
+  ['Wat als ik te weinig budget heb?', 'Keeep maakt zichtbaar waar het tekort zit en waar geld vandaan kan komen. Het doel is niet strenger zijn voor jezelf, maar sneller begrijpen wat er nodig is.']
 ];
 ---
 <BaseLayout title="FAQ - Keeep" description="Antwoorden op veelgestelde vragen over Keeep.">
@@ -18,14 +18,14 @@ const questions = [
     <section class="page-hero">
       <p class="eyebrow">FAQ</p>
       <h1>Veelgestelde vragen</h1>
-      <p class="intro">Kort en eerlijk, want vertrouwen begint bij duidelijkheid.</p>
+      <p class="intro">Alles open en overzichtelijk. Keeep draait om vooraf plannen, potjes vullen en rustiger bijsturen.</p>
     </section>
-    <section class="faq-list large">
+    <section class="faq-list open">
       {questions.map(([question, answer]) => (
-        <details>
-          <summary>{question}</summary>
+        <article>
+          <h2>{question}</h2>
           <p>{answer}</p>
-        </details>
+        </article>
       ))}
     </section>
   </main>

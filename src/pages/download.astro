@@ -3,44 +3,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Download Keeep beta" description="Vraag toegang aan tot de Keeep beta voor macOS.">
   <main class="page">
-    <section class="page-hero">
-      <p class="eyebrow">Download / beta</p>
-      <h1>Test Keeep als beta-gebruiker.</h1>
+    <section class="page-hero beta-hero">
+      <p class="eyebrow">Beta</p>
+      <h1>macOS beta beschikbaar. Windows komt eraan.</h1>
       <p class="intro">
-        Keeep is momenteel in beta. De kern werkt: budgetteren, categorieen, rollover,
-        creditcards, back-ups en lokale opslag. We zoeken gebruikers die de app in het dagelijks leven
-        willen testen en feedback willen geven op duidelijkheid, gebruiksgemak en betrouwbaarheid.
+        Keeep helpt je inkomen vooraf verdelen, potjes vullen en maand na maand rustiger bijsturen.
+        De beta is bedoeld om die basis in echte huishoudens te testen.
       </p>
+      <a class="button primary" href="mailto:info@keeep.nl?subject=Keeep beta">Ik wil Keeep testen</a>
     </section>
 
     <section class="release-grid">
       <article class="release-card available">
+        <img src="/images/blog/macos-beta.svg" alt="" />
         <p class="eyebrow">Beschikbaar</p>
         <h2>macOS beta</h2>
         <p>De eerste complete macOS build is beschikbaar voor testgebruikers.</p>
         <button type="button">Vraag toegang tot de beta aan</button>
       </article>
       <article class="release-card">
+        <img src="/images/home/backup.svg" alt="" />
         <p class="eyebrow">Komt eraan</p>
         <h2>Windows</h2>
-        <p>Windows volgt zodra de build getest is op een Windows-machine.</p>
+        <p>Windows volgt zodra de app daar net zo rustig en betrouwbaar werkt als op macOS.</p>
       </article>
       <article class="release-card">
-        <p class="eyebrow">Bewust niet nu</p>
-        <h2>Geen mobiele belofte</h2>
-        <p>We beloven nu geen iOS, Android, bankimport of automatische synchronisatie.</p>
+        <img src="/images/home/euro-task.svg" alt="" />
+        <p class="eyebrow">Waar we op testen</p>
+        <h2>Rust in je maand</h2>
+        <p>We willen weten of Keeep snel duidelijk maakt wat je geld deze maand moet doen.</p>
       </article>
     </section>
 
     <section class="download-notes">
-      <h2>Belangrijk voor beta-testers</h2>
+      <h2>Wat je in de beta kunt testen</h2>
       <ul>
-        <li>Data blijft lokaal op je eigen apparaat.</li>
-        <li>De beta kan nog bugs bevatten.</li>
-        <li>Maak regelmatig zelf een back-up.</li>
-        <li>Er is geen bankkoppeling.</li>
-        <li>Er is geen automatisch importeren van transacties.</li>
-        <li>Creditcards, rollover, back-up/herstel en lokale opslag zijn onderdeel van de test.</li>
+        <li>Inkomen verdelen over duidelijke potjes.</li>
+        <li>Budget meenemen naar volgende maanden.</li>
+        <li>Creditcarduitgaven en betalingen zichtbaar houden.</li>
+        <li>Budgetbestanden lokaal bewaren en herstellen.</li>
+        <li>Dagelijks bijsturen zonder financieel jargon.</li>
       </ul>
     </section>
   </main>

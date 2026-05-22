@@ -25,26 +25,30 @@ const nav = [
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Keeep homepage">
-        <img src="/images/keeep-icon.png" alt="" />
-        <span>Kee<span>ep</span></span>
-      </a>
-      <nav class="site-nav" aria-label="Hoofdnavigatie">
-        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
-      </nav>
+      <div class="site-header-inner grid-container grid-x align-middle align-justify">
+        <a class="brand cell shrink" href="/" aria-label="Keeep homepage">
+          <img src="/images/keeep-icon.png" alt="" />
+          <span>Kee<span>ep</span></span>
+        </a>
+        <nav class="site-nav cell shrink" aria-label="Hoofdnavigatie">
+          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+      </div>
     </header>
     <slot />
     <footer class="site-footer">
-      <div>
-        <strong>Kee<span>ep</span></strong>
-        <p>Geef je geld een plan. Lokaal, nuchter en zonder abonnement.</p>
+      <div class="site-footer-inner grid-container grid-x align-middle align-justify">
+        <div class="cell medium-5">
+          <strong>Kee<span>ep</span></strong>
+          <p>Geef je geld een plan. Lokaal, nuchter en zonder abonnement.</p>
+        </div>
+        <nav class="cell medium-auto" aria-label="Footer navigatie">
+          <a href="/prijs/">Prijs</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/voorwaarden/">Voorwaarden</a>
+          <a href="/changelog/">Changelog</a>
+        </nav>
       </div>
-      <nav aria-label="Footer navigatie">
-        <a href="/prijs/">Prijs</a>
-        <a href="/privacy/">Privacy</a>
-        <a href="/voorwaarden/">Voorwaarden</a>
-        <a href="/changelog/">Changelog</a>
-      </nav>
     </footer>
   </body>
 </html>
